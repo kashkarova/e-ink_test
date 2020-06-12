@@ -14,7 +14,7 @@ $(document).ready(function () {
         setInterval(function () {
             updateDateTime();
             resolve();
-         }, 1000);
+         }, 60000);
     });
     updateDateTimePromise.then(() => {
         console.log("Success!");
