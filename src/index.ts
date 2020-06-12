@@ -8,8 +8,15 @@ function updateDateTime(): void {
 }
 
 $(document).ready(function () {
-    updateDateTime();
-    setInterval(function () {
+
+    var updateDateTimePromise = new Promise((resolve, reject) => {
         updateDateTime();
-     }, 60000);
+        setInterval(function () {
+            updateDateTime();
+            resolve();
+         }, 1000);
+    });
+    updateDateTimePromise.then(() => {
+        console.log("Success!");
+    });
 });
