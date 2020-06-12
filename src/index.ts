@@ -8,6 +8,7 @@ function updateDateTime(): void {
 }
 
 $(document).ready(function () {
+    updateDateTime();
     setInterval(function () {
         updateDateTime();
      }, 60000);

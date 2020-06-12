@@ -8,21 +8,32 @@ module.exports = {
     context: ROOT,
 
     entry: {
-        'index': './index.html'
+        'index': './index.ts'
     },
 
     output: {
         filename: '[name].bundle.js',
         path: DESTINATION
     },
-
+    resolve: {
+        extensions: ['.ts', '.js'],
+        modules: [
+            ROOT,
+            'node_modules'
+        ]
+    },
     module: {
         rules: [
             {
-                test: /\.html$/,
-                use: ["html-loader"],
+                test: /\.ts$/,
+                use: ["ts-loader"],
                 exclude: [ /node_modules/ ]
             }
         ]
-    }
+    },
+    devServer: {
+        contentBase: __dirname + "/src/",
+        inline: true,
+    },
+    devtool: 'inline-source-map'
 }
