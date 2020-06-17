@@ -9,14 +9,13 @@ function updateDateTime(): void {
 
 $(document).ready(function () {
 
-    var updateDateTimePromise = new Promise((resolve, reject) => {
-        updateDateTime();
-        setInterval(function () {
-            updateDateTime();
-            resolve();
-         }, 60000);
-    });
-    updateDateTimePromise.then(() => {
-        console.log("Success!");
-    });
+    var makeRequest = async () => {
+        await updateDateTime()
+        console.log('done!');
+    }
+
+    makeRequest();
+    setInterval(function () {
+        makeRequest();
+    }, 60000);
 });
