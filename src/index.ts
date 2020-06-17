@@ -8,14 +8,8 @@ function updateDateTime(): void {
 }
 
 $(document).ready(function () {
-
-    var makeRequest = async () => {
-        await updateDateTime()
-        console.log('done!');
-    }
-
-    makeRequest();
+    updateDateTime();
     setInterval(function () {
-        makeRequest();
-    }, 60000);
+        updateDateTime();
+    }, 1000);
 });
